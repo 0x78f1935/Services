@@ -12,8 +12,6 @@ services:
       - 1812-1813:1812-1813/udp
     networks:
       - services
-    # volumes:
-    #   - ./services/freeradius/configuration/:/etc/raddb/
 
 networks:
   services:
