@@ -13,7 +13,7 @@ to contribute.
 
 ### Unix
 - [Install docker](https://docs.docker.com/engine/install/debian/)
-- [make a user group and add docker to that group](https://docs.docker.com/engine/install/linux-postinstall/)
+- [Make a user group and add docker to that group](https://docs.docker.com/engine/install/linux-postinstall/)
 - [Install docker-compose](https://docs.docker.com/compose/install/)
 
 ### Windows
@@ -47,5 +47,5 @@ docker-compose up --build -d SERVICE_NAME
 
 ## Services
 Available services are:
-1. [freeradius]()
-    - [Getting Started]()
+1. **[freeradius](https://github.com/0x78f1935/Services/blob/master/docs/freeradius/index.md)**
+    - [Getting Started](https://github.com/0x78f1935/Services/blob/master/docs/freeradius/getting_started.md)
