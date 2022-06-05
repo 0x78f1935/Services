@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+  freeradius:
+    restart: on-failure
+    container_name: freeradius
+    image: freeradius
+    hostname: freeradius
+    build:
+      context: .
+      dockerfile: ./services/freeradius/freeradius.dockerfile
+    ports:
+      - 1812-1813:1812-1813/udp
+    networks:
+      - services
+    # volumes:
+    #   - ./services/freeradius/configuration/:/etc/raddb/
+
+networks:
+  services:
