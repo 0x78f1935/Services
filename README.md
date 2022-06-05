@@ -49,3 +49,5 @@ docker-compose up --build -d SERVICE_NAME
 Available services are:
 1. **[freeradius](https://github.com/0x78f1935/Services/blob/master/docs/freeradius/index.md)**
     - [Getting Started](https://github.com/0x78f1935/Services/blob/master/docs/freeradius/getting_started.md)
+2. **[openldap](https://github.com/0x78f1935/Services/blob/master/docs/openldap/index.md)**
+    - [Getting Started](https://github.com/0x78f1935/Services/blob/master/docs/openldap/getting_started.md)
