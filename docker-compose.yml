@@ -13,5 +13,26 @@ services:
     networks:
       - services
 
+  openldap:
+    restart: on-failure
+    container_name: openldap
+    image: openldap
+    hostname: openldap
+    build:
+      context: .
+      dockerfile: ./services/openldap/openldap.dockerfile
+    ports:
+      - 389:389
+      - 636:636
+    networks:
+      - services
+    environment:
+      - LDAP_ORGANISATION=example
+      - LDAP_DOMAIN=example.org
+      - LDAP_ADMIN_PASSWORD=admin
+    volumes:
+      - ./data_persistance/backups/openldap/ldap:/var/lib/ldap
+      - ./data_persistance/backups/openldap/slapd.d:/etc/ldap/slapd.d
+
 networks:
   services:
