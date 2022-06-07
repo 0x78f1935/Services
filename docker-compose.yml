@@ -11,7 +11,7 @@ services:
     ports:
       - 1812-1813:1812-1813/udp
     networks:
-      - services
+      - freeradius
 
   openldap:
     restart: on-failure
@@ -25,7 +25,7 @@ services:
       - 389:389
       - 636:636
     networks:
-      - services
+      - openldap
     environment:
       - LDAP_ORGANISATION=example
       - LDAP_DOMAIN=example.org
@@ -35,4 +35,7 @@ services:
       - ./data_persistance/backups/openldap/slapd.d:/etc/ldap/slapd.d
 
 networks:
-  services:
+  freeradius:
+    driver: bridge
+  openldap:
+    driver: bridge

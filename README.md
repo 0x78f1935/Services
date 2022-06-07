@@ -51,3 +51,34 @@ Available services are:
     - [Getting Started](https://github.com/0x78f1935/Services/blob/master/docs/freeradius/getting_started.md)
 2. **[openldap](https://github.com/0x78f1935/Services/blob/master/docs/openldap/index.md)**
     - [Getting Started](https://github.com/0x78f1935/Services/blob/master/docs/openldap/getting_started.md)
+
+
+## Networks
+You can attach any existing service network to your project without to much hassle. In this example I'm using 
+`docker-compose` to glue the networks together. Where `pytest_3_9` is an imaginary application build that doesn't exist.
+```
+version: "3.9"
+services:
+  pytest_3_9:
+    restart: on-failure
+    container_name: pytest_3_9
+    image: pytest_3_9
+    hostname: pytest_3_9
+    build:
+      context: .
+      dockerfile: tests/3_9.dockerfile
+    ports:
+      - 5039:5000
+    networks:
+      - application
+      - services_openldap
+    environment:
+      - LDAP_HOST=openldap
+
+networks:
+  application:
+    driver: bridge
+  services_openldap:
+    external: true
+```
+Note `services_openldap` which has the option `external`. This allows you to run the service alongside your application.
